@@ -1,53 +1,37 @@
 package com.java.daobean;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.java.entity.ServicesPojo;
-import com.java.repositary.MyServices;
+import com.java.entity.SalonPojo;
+import com.java.repositary.MySalon;
 
 @Repository
-
-public class ServiceDaoBean {
-
+public class SalonDaoBean {
+	
 	@Autowired
-	MyServices repo;
+	MySalon repo;
 	
 //----------------------------------------------------------------------------------------------------------------	
-	
-	public ServicesPojo addService(int id, int sid, int cost, String name)
+	public SalonPojo addSalon(int id, int reg_id, String name, String address, long phone,
+			String email, int no_of_stylist, String username, String password)
 	{
-		ServicesPojo sp = new ServicesPojo(id , sid, cost, name);
+		SalonPojo sp = new SalonPojo(id, reg_id, name, address, phone, email, no_of_stylist, username, password);
 		return repo.save(sp);
 	}
 
 //-----------------------------------------------------------------------------------------------------------------
-	
-	public List<ServicesPojo> getAllServices() {
+	public List<SalonPojo> getAllSalons() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
 	}
 	
 //-----------------------------------------------------------------------------------------------------------------	
-      
-     public void removeService(int id)
-     {
-    //	 ServicesPojo sp = new ServicesPojo(id , sid, cost, name);
- 		 repo.deleteById(id);
-     }
+
      
 //-----------------------------------------------------------------------------------------------------------------
-     
-     public void updateService(int id)
-     {
-           
-     }
-     
+     		
 
 }

@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-@Table(name="service")
+@Table(name="service_details_tbl")
 public class ServicesPojo {
 
 	@Id
@@ -17,7 +17,7 @@ public class ServicesPojo {
 	public int service_id;
 	
 	@Column(name="sal_id")
-	public int salon_id;
+	public int sal_id;
 	
 	@Column(name="serv_name")
 	public String service_name;
@@ -25,21 +25,26 @@ public class ServicesPojo {
 	@Column(name="serv_cost")
 	public int service_cost;
 	
-	public ServicesPojo() {
+	@Column(name="serv_time")
+	public int service_time;
+	
+	public ServicesPojo(int id, int sid, int cost, String name) {
 		service_id=0;
-		salon_id=0;
+		sal_id=0;
 		service_name=null;
 		service_cost=0;	
+		service_time=0;	
 	}
 
-	public ServicesPojo(int service_id, int salon_id, int service_cost, String service_name) {
+	public ServicesPojo() {
+		super();
 		this.service_id = service_id;
-		this.salon_id = salon_id;
+		this.sal_id = sal_id;
 		this.service_name = service_name;
 		this.service_cost = service_cost;
+		this.service_time = service_time;
 	}
 
-	
 	public int getService_id() {
 		return service_id;
 	}
@@ -48,12 +53,12 @@ public class ServicesPojo {
 		this.service_id = service_id;
 	}
 
-	public int getSalon_id() {
-		return salon_id;
+	public int getSal_id() {
+		return sal_id;
 	}
 
-	public void setSalon_id(int salon_id) {
-		this.salon_id = salon_id;
+	public void setSal_id(int sal_id) {
+		this.sal_id = sal_id;
 	}
 
 	public String getService_name() {
@@ -72,15 +77,16 @@ public class ServicesPojo {
 		this.service_cost = service_cost;
 	}
 
-//	public String toString() {
-//		String str="";
-//	 str+= "service_id=" + service_id + ", salon_id=" + salon_id + ", service_name=" + service_name
-//				+ ", service_cost=" + service_cost + ", getService_id()=" + getService_id() + ", getSalon_id()="
-//				+ getSalon_id() + ", getService_name()=" + getService_name() + ", getService_cost()="
-//				+ getService_cost();
-//	 
-//	 return str;
-//	}
-//	
+	public int getService_time() {
+		return service_time;
+	}
+
+	public void setService_time(int service_time) {
+		this.service_time = service_time;
+	}
+
+	
+
+
 
 }

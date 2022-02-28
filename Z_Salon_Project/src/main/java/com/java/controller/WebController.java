@@ -50,7 +50,7 @@ public class WebController {
 	{
 		ModelAndView mv = new ModelAndView();
 		
-		List<ServicesPojo> list = dao.getAllBooks();
+		List<ServicesPojo> list = dao.getAllServices();
 		
 		mv.addObject("allservices", list);  //request.setAttribute
 		mv.setViewName("allservices");  //requestdispatcher forward
